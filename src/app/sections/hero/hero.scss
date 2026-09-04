@@ -1,0 +1,143 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &__content {
+    z-index: 10;
+    text-align: center;
+    position: relative;
+  }
+
+  &__name {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  &__title {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 0.75rem;
+  }
+
+  &__tagline {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 1.5rem auto;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  &__btn {
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background: var(--accent);
+      color: white;
+      border: none;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border);
+
+      &:hover {
+        border-color: var(--accent);
+      }
+    }
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: float 20s infinite ease-in-out;
+    mix-blend-mode: screen;
+
+    &--1 {
+      width: 400px;
+      height: 400px;
+      background: var(--accent);
+      top: -10%;
+      left: -10%;
+    }
+
+    &--2 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-light);
+      bottom: -10%;
+      right: -10%;
+      animation-delay: -5s;
+    }
+
+    &--3 {
+      width: 250px;
+      height: 250px;
+      background: var(--accent);
+      top: 40%;
+      right: 20%;
+      animation-delay: -10s;
+    }
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    animation: bounce 2s infinite ease-in-out;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -20px);
+  }
+  50% {
+    transform: translate(-10px, 20px);
+  }
+  75% {
+    transform: translate(-20px, -10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}

@@ -1,0 +1,22 @@
+<section id="hero" class="hero">
+  <div class="hero__orb hero__orb--1"></div>
+  <div class="hero__orb hero__orb--2"></div>
+  <div class="hero__orb hero__orb--3"></div>
+
+  <div class="hero__content">
+    <h1 class="hero__name hero__animate">{{ personalInfo.name }}</h1>
+    <h2 class="hero__title hero__animate">{{ personalInfo.title }}</h2>
+    <p class="hero__tagline hero__animate">{{ personalInfo.tagline }}</p>
+
+    <div class="hero__actions hero__animate">
+      <button class="hero__btn hero__btn--primary" (click)="scrollTo('#projects')">View Projects</button>
+      <button class="hero__btn hero__btn--secondary" (click)="scrollTo('#contact')">Contact Me</button>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>

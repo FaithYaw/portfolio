@@ -1,0 +1,20 @@
+<section id="about" class="about">
+  <h2 class="section-title" appScrollReveal>About Me</h2>
+
+  <div class="about__grid">
+    <div class="about__content" appScrollReveal>
+      <p class="about__bio">{{ personalInfo.bio }}</p>
+      <p class="about__bio" style="margin-top: 1rem; opacity: 0.9;">{{ personalInfo.tagline }}</p>
+    </div>
+    
+    <div class="about__stats">
+      @for (stat of stats; track stat.label) {
+        <div class="about__stat-card" appScrollReveal>
+          <div class="about__stat-value">{{ stat.value }}</div>
+          <div class="about__stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+

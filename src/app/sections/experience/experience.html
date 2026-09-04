@@ -1,0 +1,24 @@
+<section id="experience" class="experience">
+  <h2 class="section-title" appScrollReveal>Experience</h2>
+
+  <div class="timeline">
+    <div class="timeline__line"></div>
+    
+    @for (exp of experiences; track exp.company + exp.role; let i = $index) {
+      <div class="timeline__item" [appScrollRevealType]="i % 2 === 0 ? 'slide-left' : 'slide-right'" appScrollReveal>
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <h3 class="timeline__company">{{ exp.company }}</h3>
+          <div class="timeline__role">{{ exp.role }}</div>
+          <div class="timeline__date">{{ exp.startDate }} - {{ exp.endDate }}</div>
+          
+          <ul class="timeline__highlights">
+            @for (highlight of exp.highlights; track highlight) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+</section>

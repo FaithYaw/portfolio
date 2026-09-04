@@ -1,0 +1,143 @@
+.experience {
+  padding: 6rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+
+  @media (min-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+  }
+
+  &__line {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: var(--border);
+
+    @media (min-width: 769px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 768px) {
+      left: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 3rem;
+    width: 100%;
+
+    @media (min-width: 769px) {
+      width: calc(50% - 2rem);
+      
+      &:nth-child(odd) {
+        align-self: flex-start;
+        .timeline__dot {
+          right: -2rem;
+          transform: translateX(50%);
+        }
+      }
+
+      &:nth-child(even) {
+        align-self: flex-end;
+        .timeline__dot {
+          left: -2rem;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline__dot {
+        left: -2rem;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    z-index: 1;
+    top: 1.5rem;
+  }
+
+  &__content {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--accent-light);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  &__company {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  &__role {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+  }
+
+  &__date {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+
+  &__highlights {
+    margin-top: 0.75rem;
+    padding-left: 1.2rem;
+    
+    li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+  }
+}

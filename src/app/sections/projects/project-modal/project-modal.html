@@ -1,0 +1,62 @@
+<div class="modal-backdrop" (click)="close()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal__header">
+      <h3 class="modal__title">{{ project().title }}</h3>
+      <button class="modal__close" (click)="close()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal__image"></div>
+
+    <div class="modal__body">
+      <div class="modal__section modal__animate">
+        <p>{{ project().fullDescription }}</p>
+      </div>
+
+      <div class="modal__section modal__animate">
+        <h4 class="modal__section-title">Key Features</h4>
+        <ul class="modal__features">
+          @for (feature of project().keyFeatures; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+      </div>
+
+      @if (project().challenges) {
+        <div class="modal__section modal__animate">
+          <h4 class="modal__section-title">Challenges & Solutions</h4>
+          <p>{{ project().challenges }}</p>
+        </div>
+      }
+
+      <div class="modal__section modal__animate">
+        <div class="project-card__tags">
+          @for (tech of project().techStack; track tech) {
+            <span class="project-card__tag">{{ tech }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="modal__actions modal__animate">
+        @if (project().liveUrl) {
+          <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer" class="modal__action-btn modal__action-btn--primary">
+            Live Demo
+          </a>
+        }
+        @if (project().githubUrl) {
+          <a [href]="project().githubUrl" target="_blank" rel="noopener noreferrer" class="modal__action-btn modal__action-btn--secondary">
+            View Code
+          </a>
+        }
+      </div>
+      
+      <div class="modal__meta modal__animate">
+        <span>Role: {{ project().role }}</span> | <span>Year: {{ project().year }}</span>
+      </div>
+    </div>
+  </div>
+</div>

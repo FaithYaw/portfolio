@@ -1,0 +1,25 @@
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border, #e2e8f0);
+  background: var(--bg-surface, #ffffff);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  color: var(--text-secondary, #64748b);
+
+  &:hover {
+    border-color: var(--accent, #6366f1);
+    color: var(--accent, #6366f1);
+    transform: scale(1.05);
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s;
+  }
+}

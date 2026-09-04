@@ -1,0 +1,31 @@
+<section id="projects" class="projects">
+  <h2 class="section-title" appScrollReveal>Featured Projects</h2>
+  
+  <div class="projects__grid">
+    @for (project of projects; track project.id; let i = $index) {
+      <div class="project-card" (click)="openModal(project)" appScrollReveal appScrollRevealType="zoom-in" [appScrollRevealDelay]="i * 120">
+        <div class="project-card__image"></div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">{{ project.title }}</h3>
+          <p class="project-card__description">{{ project.shortDescription }}</p>
+          <div class="project-card__tags">
+            @for (tech of project.techStack; track tech) {
+              <span class="project-card__tag">{{ tech }}</span>
+            }
+          </div>
+          <button class="project-card__btn">
+            View Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+@if (selectedProject()) {
+  <app-project-modal [project]="selectedProject()!" (closeModal)="closeModal()"></app-project-modal>
+}

@@ -1,0 +1,109 @@
+.projects {
+  padding: 6rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+}
+
+.project-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+
+    .project-card__btn {
+      gap: 0.75rem;
+    }
+  }
+
+  &__image {
+    height: 220px;
+    background: linear-gradient(135deg, var(--accent-subtle) 0%, var(--bg-surface-elevated) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  &__description {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  &__tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-subtle);
+    color: var(--accent);
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+  }
+
+  &__btn {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0;
+    transition: gap 0.3s ease;
+  }
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+  }
+}

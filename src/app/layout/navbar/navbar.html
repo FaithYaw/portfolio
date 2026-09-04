@@ -1,0 +1,42 @@
+<nav class="navbar" [class.navbar--scrolled]="isScrolled()">
+  <a class="navbar__brand" (click)="scrollToSection('#hero')">Faith Yaw</a>
+
+  <ul class="navbar__links">
+    @for (link of navLinks; track link.label) {
+    <li>
+      <button class="navbar__link"
+        [class.navbar__link--active]="activeSection() === link.target || activeSection() === link.target.replace('#', '')"
+        (click)="scrollToSection(link.target)">
+        {{ link.label }}
+      </button>
+    </li>
+    }
+  </ul>
+
+  <div class="navbar__right">
+    <app-theme-toggle></app-theme-toggle>
+
+    <button class="navbar__hamburger" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+@if (isMobileMenuOpen()) {
+<div class="navbar__mobile-backdrop" (click)="closeMobileMenu()"></div>
+}
+
+<div class="navbar__mobile-menu" [class.navbar__mobile-menu--open]="isMobileMenuOpen()">
+  @for (link of navLinks; track link.label) {
+  <button class="navbar__mobile-link"
+    [class.navbar__link--active]="activeSection() === link.target || activeSection() === link.target.replace('#', '')"
+    (click)="scrollToSection(link.target)">
+    {{ link.label }}
+  </button>
+  }
+</div>
