@@ -25,6 +25,9 @@
   }
 
   &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary, #0f172a);
@@ -39,7 +42,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    
+
     @media (max-width: 767px) {
       display: none;
     }
@@ -64,7 +67,7 @@
 
     &--active {
       color: var(--accent, #6366f1);
-      
+
       &::after {
         content: '';
         position: absolute;
@@ -144,7 +147,7 @@
     cursor: pointer;
     font-family: inherit;
     position: relative;
-    
+
     &.navbar__link--active {
       color: var(--accent, #6366f1);
       &::after {
@@ -160,4 +163,11 @@
       }
     }
   }
+}
+
+.navbar__logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
 }

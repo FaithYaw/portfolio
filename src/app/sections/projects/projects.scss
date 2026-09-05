@@ -12,22 +12,55 @@
 }
 
 .project-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  overflow: hidden;
-  transition: all 0.4s ease;
+  perspective: 1000px;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  min-height: 430px;
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    .project-card__inner {
+      transform: rotateY(180deg);
+      box-shadow: var(--shadow-lg);
+    }
 
     .project-card__btn {
       gap: 0.75rem;
     }
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, box-shadow 0.4s ease;
+    border-radius: inherit;
+  }
+
+  &__face {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: inherit;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  &__face--front {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__face--back {
+    transform: rotateY(180deg);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
   }
 
   &__image {
@@ -56,6 +89,13 @@
     margin-top: 0.5rem;
     font-size: 0.95rem;
     flex: 1;
+  }
+
+  &__back-description {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 
   &__tags {

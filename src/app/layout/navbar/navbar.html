@@ -1,5 +1,8 @@
 <nav class="navbar" [class.navbar--scrolled]="isScrolled()">
-  <a class="navbar__brand" (click)="scrollToSection('#hero')">Faith Yaw</a>
+  <a class="navbar__brand" (click)="scrollToSection('#hero')">
+    <img class="navbar__logo" src="img.png" alt="Logo" />
+    <span>Faith Yaw</span>
+  </a>
 
   <ul class="navbar__links">
     @for (link of navLinks; track link.label) {

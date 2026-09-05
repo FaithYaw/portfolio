@@ -1,5 +1,5 @@
 <div class="modal-backdrop" (click)="close()">
-  <div class="modal" (click)="$event.stopPropagation()">
+  <div class="modal" data-lenis-prevent (click)="$event.stopPropagation()">
     <div class="modal__header">
       <h3 class="modal__title">{{ project().title }}</h3>
       <button class="modal__close" (click)="close()">
