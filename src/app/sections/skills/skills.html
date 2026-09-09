@@ -1,5 +1,9 @@
 <section id="skills" class="skills">
   <h2 class="section-title" appScrollReveal>Skills & Technologies</h2>
+  <p class="skills__why" appScrollReveal>
+    My backend work is primarily Java/Spring Boot because I enjoy working on strongly structured systems where architecture, data consistency, and maintainability matter. More recently, I've been exploring integrating AI into backend applications which uses Python and FastAPI.
+    I also have experience with CI/CD and devops using docker & AWS to deploy my side project.
+  </p>
 
   @for (category of categories; track category.name; let catIndex = $index) {
     <div class="skills__category">
@@ -7,7 +11,8 @@
       <div class="skills__grid">
         @for (skill of category.skills; track skill.name; let skillIndex = $index) {
           <div class="skill-card" appScrollReveal appScrollRevealType="zoom-in" [appScrollRevealDelay]="(catIndex * 60) + (skillIndex * 40)">
-            {{ skill.name }}
+            <img class="skill-card__icon" [src]="skill.icon" [alt]="skill.name + ' icon'" />
+            <span>{{ skill.name }}</span>
           </div>
         }
       </div>

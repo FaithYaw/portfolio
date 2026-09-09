@@ -49,9 +49,12 @@ export class ScrollRevealDirective implements OnDestroy {
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',
-            once: true,
+            toggleActions: 'play none none reverse',
             onEnter: () => {
               this.renderer.addClass(el, 'is-visible');
+            },
+            onLeaveBack: () => {
+              this.renderer.removeClass(el, 'is-visible');
             }
           }
         }

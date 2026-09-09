@@ -1,0 +1,27 @@
+<section id="outside" class="outside">
+  <h2 class="section-title" appScrollReveal>Outside of Software</h2>
+
+  <p class="outside__intro" appScrollReveal>
+    When I step away from the screen, I still enjoy creating, learning, and being around people (and cat 🐱) who make life more interesting.
+  </p>
+
+  <div class="outside__grid">
+    @for (interest of interests; track interest.title; let index = $index) {
+      <div
+        class="outside__item"
+        [class.outside__item--reverse]="index % 2 !== 0"
+        appScrollReveal
+        [appScrollRevealType]="index % 2 === 0 ? 'slide-left' : 'slide-right'"
+        [appScrollRevealDelay]="index * 120">
+        <div class="outside__content">
+          <h3>{{ interest.title }}</h3>
+          <p>{{ interest.description }}</p>
+        </div>
+
+        <div class="outside__preview" aria-label="{{ interest.title }} preview">
+          <img [src]="interest.imageUrl" [alt]="interest.title" />
+        </div>
+      </div>
+    }
+  </div>
+</section>

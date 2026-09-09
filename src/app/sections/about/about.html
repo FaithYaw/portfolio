@@ -4,9 +4,8 @@
   <div class="about__grid">
     <div class="about__content" appScrollReveal>
       <p class="about__bio">{{ personalInfo.bio }}</p>
-      <p class="about__bio" style="margin-top: 1rem; opacity: 0.9;">{{ personalInfo.tagline }}</p>
     </div>
-    
+
     <div class="about__stats">
       @for (stat of stats; track stat.label) {
         <div class="about__stat-card" appScrollReveal>

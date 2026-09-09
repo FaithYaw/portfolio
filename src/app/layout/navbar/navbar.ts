@@ -8,7 +8,7 @@ import { ThemeToggleComponent } from '../../shared/components/theme-toggle/theme
   standalone: true,
   imports: [CommonModule, ThemeToggleComponent],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.scss'
+  styleUrl: './navbar.scss',
 })
 export class NavbarComponent implements OnDestroy {
   private smoothScrollService = inject(SmoothScrollService);
@@ -23,9 +23,9 @@ export class NavbarComponent implements OnDestroy {
     { label: 'Projects', target: '#projects' },
     { label: 'Skills', target: '#skills' },
     { label: 'Experience', target: '#experience' },
-    { label: 'Contact', target: '#contact' }
+    { label: 'Me', target: '#outside' },
+    { label: 'Contact', target: '#contact' },
   ];
-
 
   private scrollListener!: () => void;
   private observer: IntersectionObserver | null = null;
@@ -48,11 +48,11 @@ export class NavbarComponent implements OnDestroy {
         const options = {
           root: null,
           rootMargin: '-50% 0px -50% 0px',
-          threshold: 0
+          threshold: 0,
         };
 
         this.observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               this.ngZone.run(() => {
                 this.activeSection.set(entry.target.id);
@@ -61,10 +61,10 @@ export class NavbarComponent implements OnDestroy {
           });
         }, options);
 
-        document.querySelectorAll('section[id]').forEach(section => {
+        document.querySelectorAll('section[id]').forEach((section) => {
           this.observer?.observe(section);
         });
-        
+
         const hero = document.getElementById('hero');
         if (hero) this.observer?.observe(hero);
       });
@@ -72,7 +72,7 @@ export class NavbarComponent implements OnDestroy {
   }
 
   toggleMobileMenu() {
-    this.isMobileMenuOpen.update(v => !v);
+    this.isMobileMenuOpen.update((v) => !v);
   }
 
   closeMobileMenu() {

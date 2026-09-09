@@ -10,11 +10,35 @@
       </button>
     </div>
 
-    <div class="modal__image"></div>
+    @if (project().videoUrl) {
+      <div class="modal__video-wrapper">
+        <video
+          class="modal__video"
+          [src]="project().videoUrl"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+        ></video>
+      </div>
+    } @else if (project().imageUrl) {
+      <img class="modal__image" [src]="project().imageUrl" [alt]="project().title" />
+    } @else {
+      <div class="modal__image modal__image--placeholder"></div>
+    }
 
     <div class="modal__body">
       <div class="modal__section modal__animate">
         <p>{{ project().fullDescription }}</p>
+
+        @if (project().liveUrl) {
+          <div class="modal__description-actions">
+            <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer" class="modal__action-btn modal__action-btn--primary">
+              Live Demo
+            </a>
+          </div>
+        }
       </div>
 
       <div class="modal__section modal__animate">
@@ -28,8 +52,13 @@
 
       @if (project().challenges) {
         <div class="modal__section modal__animate">
-          <h4 class="modal__section-title">Challenges & Solutions</h4>
+          <h4 class="modal__section-title">Problem Statement</h4>
           <p>{{ project().challenges }}</p>
+        </div>
+
+        <div class="modal__section modal__animate">
+          <h4 class="modal__section-title">Solutions</h4>
+          <p>{{ project().solutions }}</p>
         </div>
       }
 
@@ -42,21 +71,13 @@
       </div>
 
       <div class="modal__actions modal__animate">
-        @if (project().liveUrl) {
-          <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer" class="modal__action-btn modal__action-btn--primary">
-            Live Demo
-          </a>
-        }
         @if (project().githubUrl) {
           <a [href]="project().githubUrl" target="_blank" rel="noopener noreferrer" class="modal__action-btn modal__action-btn--secondary">
             View Code
           </a>
         }
       </div>
-      
-      <div class="modal__meta modal__animate">
-        <span>Role: {{ project().role }}</span> | <span>Year: {{ project().year }}</span>
-      </div>
+
     </div>
   </div>
 </div>

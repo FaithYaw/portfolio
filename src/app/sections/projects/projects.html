@@ -6,7 +6,11 @@
       <div class="project-card" (click)="openModal(project)" appScrollReveal appScrollRevealType="zoom-in" [appScrollRevealDelay]="i * 120">
         <div class="project-card__inner">
           <div class="project-card__face project-card__face--front">
-            <div class="project-card__image"></div>
+            @if (project.imageUrl) {
+              <img class="project-card__image" [src]="project.imageUrl" [alt]="project.title" />
+            } @else {
+              <div class="project-card__image project-card__image--placeholder"></div>
+            }
             <div class="project-card__content">
               <h3 class="project-card__title">{{ project.title }}</h3>
               <p class="project-card__description">{{ project.shortDescription }}</p>

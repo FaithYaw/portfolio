@@ -4,6 +4,7 @@ import { HeroComponent } from './sections/hero/hero';
 import { AboutComponent } from './sections/about/about';
 import { ProjectsComponent } from './sections/projects/projects';
 import { SkillsComponent } from './sections/skills/skills';
+import { OutsideComponent } from './sections/outside/outside';
 import { ExperienceComponent } from './sections/experience/experience';
 import { ContactComponent } from './sections/contact/contact';
 import { FooterComponent } from './sections/footer/footer';
@@ -17,6 +18,7 @@ import { FooterComponent } from './sections/footer/footer';
     AboutComponent,
     ProjectsComponent,
     SkillsComponent,
+    OutsideComponent,
     ExperienceComponent,
     ContactComponent,
     FooterComponent
