@@ -11,7 +11,12 @@
     </div>
 
     @if (project().videoUrl) {
-      <div class="modal__video-wrapper">
+      <div class="modal__video-wrapper" [class.is-loading]="videoLoading">
+        @if (videoLoading) {
+          <div class="modal__video-loader" aria-live="polite" aria-label="Loading video">
+            <span class="modal__video-loader-spinner"></span>
+          </div>
+        }
         <video
           class="modal__video"
           [src]="project().videoUrl"
@@ -20,6 +25,8 @@
           muted
           playsinline
           preload="auto"
+          (loadstart)="onVideoLoadStart()"
+          (canplay)="onVideoCanPlay()"
         ></video>
       </div>
     } @else if (project().imageUrl) {

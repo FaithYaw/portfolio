@@ -67,7 +67,7 @@ export const PERSONAL_INFO: PersonalInfo = {
   name: 'Faith Yaw',
   title: 'Full-Stack Developer',
   tagline: 'I like building things and figuring out how things work.',
-  bio: `I'm a Full Stack Engineer who enjoys understanding how things work beneath the surface.I've worked on software across fintech and insurance, including internal trading systems and insurance platforms.I'm still learning, experimenting, and occasionally going down engineering rabbit holes that start with "I wonder how this actually works..." , which is probably one of the reasons I enjoy software development in the first place.`,
+  bio: `I'm a Full Stack Engineer who enjoys taking things apart to understand how they work beneath the surface. My experience is mainly in the fintech industry, where I've worked on everything from internal trading systems to insurance platforms. Outside of work, I like learning new technologies, experimenting with ideas, and building side projects that solve problems I actually care about.  `,
   email: 'faithyaw.xy@gmail.com',
   location: 'Malaysia',
   resumeUrl: '/assets/resume.pdf',
@@ -108,42 +108,22 @@ export const PROJECTS: Project[] = [
     fullDescription:
       'A CLI and web interface designed to streamline complex development workflows, CI/CD pipelines, and local environment setups.',
     challenges:
-      'Creating a flexible architecture that supports multiple cloud providers and CI tools.',
+      'Developer often manage infrastructure across multiple tools and dashboards, leading to slow troubleshooting, missed issues, and risky manual actions during incidents.',
     solutions:
-      'Designed a plugin-based architecture in Go, allowing easy community contributions and integrations.',
-    keyFeatures: ['Pipeline automation', 'Environment templating', 'Plugin system', 'CLI & Web UI'],
-    techStack: ['Angular', 'Go', 'Docker', 'Kubernetes'],
+      'This app centralizes operational insight and enables quick, guided decision-making. It surfaces real-time health data, explains system states, and supports safe execution of infrastructure actions only after explicit approval,helping dev move faster without sacrificing control.',
+    keyFeatures: [
+      'Live infrastructure dashboard with container health, Jenkins job status, and deployment visibility',
+      'Conversational ops assistant that can inspect infrastructure and answer DevOps questions',
+      'PHuman-approved write actions for changes like restarts, deploys, and updates to reduce risky automation',
+      'CLI & Web UI interface for flexible workflow management and monitoring',
+    ],
+    techStack: ['Python'],
     category: 'DevOps / Tools',
     imageUrl: 'project-demo/devops-demo.png',
     videoUrl: 'project-demo/devops-ai.mp4',
-    liveUrl: 'https://devflow-example.com',
-    githubUrl: 'https://github.com/alexayaw/devflow',
+    liveUrl: '',
+    githubUrl: 'https://github.com/FaithYaw/devops-agent',
     role: 'Creator & Maintainer',
-    year: 2023,
-  },
-  {
-    id: 'ecomarket',
-    title: 'EcoMarket',
-    shortDescription: 'Sustainable e-commerce marketplace',
-    fullDescription:
-      'A multi-vendor marketplace focusing exclusively on eco-friendly and sustainable products, with integrated carbon footprint tracking.',
-    challenges: 'Managing complex vendor payouts and inventory synchronization.',
-    solutions:
-      'Integrated Stripe Connect for seamless multi-party payments and Redis for high-speed inventory caching.',
-    keyFeatures: [
-      'Multi-vendor support',
-      'Stripe Connect',
-      'Carbon tracking',
-      'Real-time inventory',
-    ],
-    techStack: ['Next.js', 'Stripe', 'MongoDB', 'Redis'],
-    category: 'Full-Stack',
-    imageUrl: '',
-    liveUrl: 'https://ecomarket-example.com',
-    videoUrl: 'duitku-demo.mp4',
-    githubUrl: 'https://github.com/alexayaw/ecomarket',
-    role: 'Full-Stack Developer',
-    year: 2023,
   },
 ];
 
@@ -194,12 +174,6 @@ export const OUTSIDE_INTERESTS: OutsideInterest[] = [
       'I’m happiest when I’m immersed in nature and under the sun, especially on a good hike. I also enjoy playing tennis, although calling myself a tennis player is currently a bit of a stretch. I’m getting slightly less terrible with practice, though.',
   },
   {
-    title: 'Reading & Writing',
-    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80',
-    description:
-      'I read a lot, from fiction to non-fiction. Reading keeps me curious, while writing essays helps me untangle the many thoughts that seem perfectly clear in my head until I try to put them on paper.',
-  },
-  {
     title: 'Meow',
     imageUrl: 'meow.png',
     description:
@@ -213,44 +187,46 @@ export const OUTSIDE_INTERESTS: OutsideInterest[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    company: 'Tech Innovators Inc.',
-    role: 'Senior Full-Stack Developer',
-    startDate: 'Jan 2023',
-    endDate: 'Present',
-    description: 'Leading a team of 5 developers in building enterprise-grade web applications.',
+    company: 'iFAST Global Hub AI',
+    role: 'Full-Stack Developer',
+    startDate: 'Apr 2025',
+    endDate: 'Jun 2026',
+    description:
+      'Design, develop, and maintain full-stack applications using Java (Spring Boot) and Angular, delivering new features and system enhancements for internal trading system.',
     highlights: [
-      'Architected a microservices-based backend using Node.js and Go.',
-      'Reduced initial load time of the main dashboard by 40%.',
-      'Mentored junior developers and established code quality standards.'
-    ]
+      'Contribute to the development and enhancement of in-house bond trading platform, implementing new functionality and improving operational workflows ',
+      'Architected and developed an AI-powered knowledge assistant.',
+      'Provide production support for trading operations, investigating bond order issues and performing root cause analysis.',
+    ],
   },
   {
-    company: 'Creative Digital Agency',
-    role: 'Web Developer',
-    startDate: 'Mar 2020',
-    endDate: 'Dec 2022',
-    description: 'Developed high-performance websites and web applications for diverse clients.',
+    company: 'Hokenso Sdn Bhd',
+    role: 'Full-Stack Developer',
+    startDate: 'Mar 2024',
+    endDate: 'Apr 2025',
+    description: 'Developed enterprise insurance applications using Java Spring Boot and Vue.js.',
     highlights: [
-      'Delivered 20+ projects on time and within budget.',
-      'Implemented custom animations using GSAP and Three.js.',
-      'Integrated headless CMS solutions for improved client content management.'
-    ]
+      'Designed and maintained backend services supporting secure, scalable insurance workflows.',
+      'Delivered end-to-end features in an Agile environment, from requirement analysis to deployment.',
+      'Improved software quality through unit testing (JUnit, Mockito) and close collaboration with QA during testing and release cycles.',
+    ],
   },
   {
-    company: 'Startup Hub',
-    role: 'Junior Software Engineer',
-    startDate: 'Jun 2018',
-    endDate: 'Feb 2020',
-    description: 'Assisted in the development of MVPs for early-stage startups.',
+    company: 'iFAST Capital Sdn Bhd',
+    role: 'Full-Stack Developer (Intern)',
+    startDate: 'Sep 2022',
+    endDate: 'Mar 2023',
+    description:
+      'Revamped legacy CRM system to improve user experience and system performance, while also implementing new features.',
     highlights: [
-      'Developed responsive UI components using Angular and React.',
-      'Assisted in setting up CI/CD pipelines with GitHub Actions.',
-      'Collaborated closely with designers to implement pixel-perfect interfaces.'
-    ]
-  }
+      'Developed REST APIs with Java Spring.',
+      'Developed responsive UI components using Angular.',
+      'Performed system maintenance, troubleshooting, and pre-deployment testing to ensure stability.',
+    ],
+  },
 ];
 
 export const STATS: Stat[] = [
-  { value: '3', label: 'Years of Experience' },
+  { value: '2+', label: 'Years of Experience' },
   { value: '10+', label: 'Technologies Mastered' }
 ];

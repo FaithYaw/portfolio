@@ -1,4 +1,4 @@
-import { Component, input, output, HostListener, afterNextRender, ElementRef, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, input, output, HostListener, afterNextRender, ElementRef, inject, OnDestroy, OnInit, effect } from '@angular/core';
 import { Project } from '../../../core/data/portfolio.data';
 import { gsap } from 'gsap';
 
@@ -11,6 +11,7 @@ import { gsap } from 'gsap';
 export class ProjectModalComponent implements OnInit, OnDestroy {
   project = input.required<Project>();
   closeModal = output<void>();
+  videoLoading = false;
   
   private elementRef = inject(ElementRef);
   private ctx!: gsap.Context;
@@ -25,6 +26,11 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
   }
 
   constructor() {
+    effect(() => {
+      const project = this.project();
+      this.videoLoading = !!project?.videoUrl;
+    });
+
     afterNextRender(() => {
       this.ctx = gsap.context(() => {
         gsap.from('.modal', {
@@ -44,6 +50,14 @@ export class ProjectModalComponent implements OnInit, OnDestroy {
         });
       }, this.elementRef.nativeElement);
     });
+  }
+
+  onVideoCanPlay() {
+    this.videoLoading = false;
+  }
+
+  onVideoLoadStart() {
+    this.videoLoading = true;
   }
 
   close() {
